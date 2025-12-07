@@ -1,30 +1,42 @@
-name: 'itential-trigger-automation'
-description: 'Action to trigger Itential Automation Platform(IAP) automations'
+name: 'itential-automation-start'
+description: 'Action to Start Itential Automations'
 author: 'Itential'
 branding:
   icon: 'activity'
   color: 'blue'
 inputs:
-  IAP_INSTANCE:
-    description: 'Itential Automation Platform instance url'
+  itential_host_url:
+    description: 'Itential instance url'
     required: true
-  IAP_TOKEN:
-    description: 'Token required to access IAP instance'
+  auth_token:
+    description: 'Token is required, if using static token authentication to access Itential instance'
+    default: ''
+  auth_username:
+    description: 'Username is required, if using basic token authentication to access Itential instance'
+    default: ''
+  auth_password:
+    description: 'Password is required, if using basic token authentication to access Itential instance'
+    default: ''
+  auth_client_id:
+    description: 'Client ID is required, if using OAuth2 client credentials authentication to access Itential instance'
+    default: ''
+  auth_client_secret:
+    description: 'Client Secret is required, if using OAuth2 client credentials authentication to access Itential instance'
+    default: ''
+  api_endpoint:
+    description: 'API endpoint name to start an automation'
     required: true
-  API_ENDPOINT:
-    description: 'API endpoint name to trigger an automation'
-    required: true
-  API_ENDPOINT_BODY:
-    description: 'The payload required to trigger an automation'
+  api_endpoint_body:
+    description: 'The payload required to start an automation'
     required: true
     default: '{}'
-  TIMEOUT:
+  time_interval:
     description: 'Time interval to check automation status'
     default: '15'
-  NO_OF_ATTEMPTS:
+  no_of_attempts:
     description: 'No. of attempts to check automation status'
     default: '10'
-  JOB_STATUS:
+  automation_status:
     description: 'If set to 1 it will wait for the automation status and if set to 0 it will not monitor the automation'
     default: '1'
 
